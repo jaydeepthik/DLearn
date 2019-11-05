@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Nov  2 15:27:26 2019
-
 @authors: jaydeep thik , Vasudev Purandare
 """
 
