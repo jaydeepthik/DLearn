@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<script>
+function abc()
+{
+document.getElementById("ss").value=($('#ddlist option:selected').text());
+
+if($('#ddlist option:selected').val()=="")
+{
+alert("Please Select a course to proceed.....");
+}
+else
+{
+confirm("The webcamera will be used for monitoring your understanding of the course material and receiving feedbcak w.r.t the video");
+
+document.getElementById("form_dd").submit();
+}
+}
+</script>
+<body background="/static/bg.jpg" style="background-repeat: no-repeat; background-size: cover;" >
+<center>
+<div style="background-color: cyan;width: 50%;height: 80%">
+<br>
+<H1>DLearn</h1>
+<H3><i>A Deep Learning approach for Learning</i></h3>
+
+<br>
+<br>
+Select a lecture to watch........
+<br><br>
+<form method="GET" action="{{ url_for('home') }}" id="form_dd" onsubmit="abc()">
+<select id="ddlist" name="video_id" >
+<option value="">Select</option>
+<option value="VO5vKowfMOQ">Perceptron</option>
+<option value="lkha188L4Gs">Universal Approximation Theorem</option>
+<option value="9kAQ8Em7SdM">Optimization</option>
+<option value="lTPg1hhd5Rs">Backpropagation Algorithm</option>
+<option value="cK_CK5u2p78">Gradient Descent</option>
+<option value="sd7qhTKIi4Y">Convergence</option>
+<option value="fChBkJ_UjRw">Regularization</option>
+<option value="2XbZ03D0Sf4">Convolutional Neural Networks</option>
+ </select>
+<input type="hidden" name="subject" id="ss" value=""/>
+<input type="Submit" value="Submit" />
+<br><br><br><br>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+      var first_launch = true;
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      var tm='';
+      
+
+
+      
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: document.getElementById("v1").value,
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+	     
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          if(first_launch){
+	         document.getElementById("fm1").submit()
+
+           first_launch=false
+          }
+          setTimeout(stopVideo, 6000000);
+          done = true;
+         
+        }
+         
+	
+      }
+
+
+      function stopVideo() {
+        player.stopVideo();
+      
+  }
+
+
+ 
+
+function abc()
+{
+  temp=player.getCurrentTime();
+   //window.sessionStorage.setItem("iden",temp);
+    confrim("Do u want to?");
+
+}
+
+function loadingPage(){
+  
+  var st=document.getElementById("state_id").value;
+  
+  if(st=="confused")
+  {
+    
+    s=document.getElementById("s1").value;
+    v=document.getElementById("v1").value;
+    skt=document.getElementById("seek1").value;
+    
+    document.getElementById("url_for_rec").action="{{ url_for('perform_rec') }}"+"?subject="+s+"&video_id="+v+"&seek_time="+skt;
+    console.log(document.getElementById("url_for_rec"));
+    document.getElementById("url_for_rec").submit();
+  }
+
+}
+
+   </script>
+
+
+
+</head >
+ <body onload="loadingPage()" onbeforeunload="abc()" background="/static/bg1.jpg" style=""><center>
+
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player" style="background-color: lightblue;" width=100% height=200%>
+</div>
+
+<form action="{{ url_for('launch') }}"  id="fm1">
+   <input type ='hidden' id="s2" name='subject' value='{{sub}}'/>
+  <input type='hidden' id="v2" name='video_id' value='{{you_vid}}'/>
+  <input type='hidden' id="seek2" name='seek_time' value={{ seek_time }}/>
+
+
+</form>
+
+<form method="GET" action=""  id="url_for_rec" enctype = "multipart/form-data">
+  <input type ='hidden' id="s1" name='subject' value='{{sub}}'/>
+  <input type='hidden' id="v1" name='video_id' value='{{you_vid}}'/>
+  <input type='hidden' id="seek1" name='seek_time' value={{ seek_time }}/>
+
+
+<input id="state_id" type="hidden" value="{{ state }}">
+
+ <div id="player" style="background-color: lightblue" width=90% height=200%>
+ <br>
+ <h3><i>Additional Notes</i></h3>
+
+{% if state!= 'NONE' %}
+   
+{% endif %}
+
+<textarea rows="25" cols="100">{{ wl }}</textarea>
+
+{% if seek_time!= "NONE" %}
+
+{% endif %}
+</div>
+</center>
+      </body>
+</html>
