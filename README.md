@@ -1,7 +1,7 @@
 # DLearn
 DLearn, a deep learning based application that helps you better understand online video lectures by utilizing your facial expressions to determine if you are confused or stressed while watching a video, and provide you with topic recommendations that you might not have understood.
 
-# components
+# Components
 1. CNN model : Costom trained Convolution Neural Net for facial expression/emotion recognition trained on FER-2013 dataset. Certain classes were merged to create new expressions so that there are 4 classes HAPPY, NEUTRAL, CONFUSED, STRESSED.
 2. Text analysis : This performs recommendations of topics depending upon the exact time when you were confused during the lecture.
 
@@ -13,10 +13,10 @@ DLearn, a deep learning based application that helps you better understand onlin
 5. These topics are then presented to the user with a brief description abut each of them, giving user time to understand them before they jump to other advanced concepts deep into the video.
 
 # Tech Stack
-1.Tensorflow-gpu(1.7) : for creating and training CNN.
-2.Flask : For deplopyment.
-3.OpenCV: face-detection.
-4.YouTube transcript API: To get transcripts for a given video.
+1. Tensorflow-gpu(1.7) : for creating and training CNN.
+2. Flask : For deplopyment.
+3. OpenCV: face-detection.
+4. YouTube transcript API: To get transcripts for a given video.
 5. Python ,Javascript and HTML.
 
 # Awards
