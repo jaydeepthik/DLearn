@@ -9,7 +9,7 @@ DLearn, a deep learning based application that helps you better understand onlin
 1. Select a video lecture that you want to learn from.
 2. The moment you click on play button, emotion detection model kicks in and continuously monitors your behavior.
 3. When the model detects that the user is stressed/confused for few continuous frames it pauses the video, analyse the transcripts of the video upto the exact time when the user seemed confused.
-4.The model looks few moments into the future and past and recommend topics that might have confuseed the user. The text analays model does this by learning distributed representations form the wikipedia text of the topic and comparing the similarity of the words in the transcripts.
+4. The model looks few moments into the future and past and recommend topics that might have confuseed the user. The text analays model does this by learning distributed representations form the wikipedia text of the topic and comparing the similarity of the words in the transcripts.
 5. These topics are then presented to the user with a brief description abut each of them, giving user time to understand them before they jump to other advanced concepts deep into the video.
 
 # Tech Stack
